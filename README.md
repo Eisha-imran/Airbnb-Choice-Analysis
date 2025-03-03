@@ -79,4 +79,63 @@ nltk.download('vader_lexicon')
 
 # import stopwords after download
 from nltk.corpus import stopwords
+
+# file ids from Google Drive links
+# here is a sample GDrive link: https://drive.google.com/file/d/1234abcde/view?usp=drive_link
+# the file id is the second to the last substring after splitting by '/'; in the above example 1234abcde
+listings_file = '1WxjQn1OtNAWKIhgVSX16bABJf8fBNBCo'
+reviews_file = '1ttiGhh6CyL4IG1bwswrXKLJL8D48dp1r'
+calendar_file = '1TGQW2efwRHjImuJSO5q1Rtb-955aNrCL'
+neighbourhoods_file = '1cDu64bHN4j0mhYBLHzbREj9guQrg7RGe'
+events_file = '1YCgSoY9XBzkb6XW--baISYTvHyvqlxgL'
+
+# download the files from Google Drive if not already in directory
+if not os.path.exists('detailed_listings.csv'):
+    gdown.download(url=f'https://drive.google.com/uc?id={listings_file}', output='detailed_listings.csv')
+else:
+    print('Listings file already exists')
+
+if not os.path.exists('detailed_reviews.csv'):
+    gdown.download(url=f'https://drive.google.com/uc?id={reviews_file}', output='detailed_reviews.csv')
+else:
+    print('Reviews file already exists')
+
+if not os.path.exists('calendar.csv'):
+    gdown.download(url=f'https://drive.google.com/uc?id={calendar_file}', output='calendar.csv')
+else:
+    print('Calendar file already exists')
+
+if not os.path.exists('neighbourhoods.csv'):
+    gdown.download(url=f'https://drive.google.com/uc?id={neighbourhoods_file}', output='neighbourhoods.csv')
+else:
+    print('Neighborhoods file already exists')
+
+if not os.path.exists('events.csv'):
+    gdown.download(url=f'https://drive.google.com/uc?id={events_file}', output='events.csv')
+else:
+    print('Events file already exists')
+```
+#### Read Files
+```
+# read the csv files
+listings_df = pd.read_csv('detailed_listings.csv')
+reviews_df = pd.read_csv('detailed_reviews.csv')
+calendar_df = pd.read_csv('calendar.csv')
+neighborhoods_df = pd.read_csv('neighbourhoods.csv')
+events_df = pd.read_csv('events.csv')
+
+# set random seed
+seed = 42
+
+```
+## Listings
+Contents covered:
+
+- Data Inspection
+- Data Cleaning 
+- EDA and Answering Relevant Guiding Questions
+- 
+### Data Inspection
+To get a clearer idea of our Listings dataset, we took a random sample of 5 rows. This gave us a clearer picture of how the listings dataset looks.
+```
 ```
